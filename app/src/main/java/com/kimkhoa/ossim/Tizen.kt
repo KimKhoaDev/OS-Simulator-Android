@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -289,5 +290,5 @@ fun Remote(tv: TvState, modifier: Modifier) {
 
 fun Modifier.pointerInputTap(onPress: (Boolean) -> Unit, onTap: () -> Unit): Modifier =
     this.then(Modifier.pointerInput(Unit) {
-        androidx.compose.foundation.gestures.detectTapGestures(onPress = { onPress(true); tryAwaitRelease(); onPress(false) }, onTap = { onTap() })
+        detectTapGestures(onPress = { onPress(true); tryAwaitRelease(); onPress(false) }, onTap = { onTap() })
     })

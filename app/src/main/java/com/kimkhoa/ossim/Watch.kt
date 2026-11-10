@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -145,11 +146,12 @@ fun Honeycomb(panX: Float, panY: Float, onPan: (Float, Float) -> Unit, onOpen: (
     )
     BoxWithConstraints(Modifier.fillMaxSize().pointerInput(Unit) { detectDragGestures { c, d -> c.consume(); onPan(d.x, d.y) } }) {
         val d = 74f
+        val dens = LocalDensity.current.density
         val maxR = constraints.maxWidth * 0.62f
         WAPPS.forEachIndexed { i, a ->
             val (q, r) = coords[i]
-            val x = d * (q + r / 2f) * density + panX
-            val y = d * (r * 0.866f) * density + panY
+            val x = d * (q + r / 2f) * dens + panX
+            val y = d * (r * 0.866f) * dens + panY
             val dist = sqrt(x * x + y * y)
             val sc = (1.15f - dist / maxR).coerceIn(0.3f, 1f)
             Box(

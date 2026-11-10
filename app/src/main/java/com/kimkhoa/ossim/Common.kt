@@ -4,6 +4,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -249,7 +250,7 @@ fun CalculatorApp(bg: Color, num: Color, op: Color, fn: Color, round: Boolean) {
                     Box(
                         Modifier.weight(if (k == "0") 2f else 1f).height(66.dp).graphicsLayer { scaleX = s; scaleY = s }
                             .clip(if (round) CircleShape else RoundedCornerShape(22.dp)).background(c)
-                            .pointerInput(Unit) { androidx.compose.foundation.gestures.detectTapGestures(onPress = { down = true; tryAwaitRelease(); down = false }, onTap = { press(k) }) },
+                            .pointerInput(Unit) { detectTapGestures(onPress = { down = true; tryAwaitRelease(); down = false }, onTap = { press(k) }) },
                         contentAlignment = Alignment.Center,
                     ) { T(k, 28.sp) }
                 }
