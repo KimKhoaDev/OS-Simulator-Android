@@ -1,0 +1,6 @@
+[submodule "third_party/miuix"]
+	path = third_party/miuix
+	url = https://github.com/compose-miuix-ui/miuix
+[submodule "third_party/AndroidLiquidGlass"]
+	path = third_party/AndroidLiquidGlass
+	url = https://github.com/Kyant0/AndroidLiquidGlass
