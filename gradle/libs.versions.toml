@@ -1,0 +1,24 @@
+[versions]
+agp = "9.5.1"
+kotlin = "2.4.21"
+compose = "1.12.2"
+activity = "1.13.0"
+core = "1.19.0"
+backdrop = "2.0.1"
+shapes = "1.2.1"
+miuix = "0.9.4"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose" }
+compose-animation = { module = "org.jetbrains.compose.animation:animation", version.ref = "compose" }
+backdrop = { module = "io.github.kyant0:backdrop", version.ref = "backdrop" }
+shapes = { module = "io.github.kyant0:shapes", version.ref = "shapes" }
+miuix-ui = { module = "top.yukonga.miuix.kmp:miuix-ui", version.ref = "miuix" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
